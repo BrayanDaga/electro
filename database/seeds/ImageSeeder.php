@@ -1,5 +1,7 @@
 <?php
 
+use App\Image;
+use App\Product;
 use Illuminate\Database\Seeder;
 
 class ImageSeeder extends Seeder
@@ -11,6 +13,12 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $products = Product::all();
+        $i = 1;
+        foreach ($products as $product) {
+            $image = Image::make(['path' => "img/products/{$i}.jpg"]);
+            $product->images()->saveMany($image);
+            $i++;
+        }
     }
 }

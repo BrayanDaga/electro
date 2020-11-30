@@ -31,4 +31,10 @@ class Product extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+
+    public function getGetExcerptAttribute()
+    {
+       return substr($this->title, 12);
+    }
 }
