@@ -13,20 +13,14 @@
 
                 <!-- store products -->
                 <div class="row">
+                    {{ $products->links() }}
 
                     @include('includes.store-products')
+                    {{ $products->links() }}
                 </div>
                 <!-- /store products -->
 
-                <div class="clearfix store-filter">
-                    <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
+
             </div>
             <!-- /STORE -->
         </div>
