@@ -10,14 +10,28 @@
             <!-- STORE -->
             <div id="store" class="col-md-12">
 
-
-                <!-- store products -->
-                <div class="row">
-                    {{ $products->links() }}
-
-                    @include('includes.store-products')
-                    {{ $products->links() }}
+                @if (!isset($cart) || $cart->products->isEmpty())
+                <div class="alert alert-warning">
+                   Your cart is empty.
                 </div>
+            @else
+
+            <h4 class="text-center">Your cart Total: <strong> {{ $cart->total }} </strong>  </h4>
+
+            <a class="mb-3 btn btn-success" href="">
+                Start Order
+            </a>
+            <div class="row">
+
+                @foreach ($cart->products as $product)
+                @include('includes.products')
+
+                @endforeach
+            </div>
+
+            @endempty
+                <!-- store products -->
+
                 <!-- /store products -->
 
 

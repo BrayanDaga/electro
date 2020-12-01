@@ -2,11 +2,37 @@
 
 
 @section('content')
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+
+            <!-- /ASIDE -->
+
+            <!-- STORE -->
+            <div id="store" class="col-md-12">
 
 
-{{-- {@include('includes.collection-products') --}}
-{{-- @include('includes.new-products') --}}
-{{-- @include('includes.ofter-products')
-@include('includes.top-products') --}}
- @include('includes.store')
+                <!-- store products -->
+                <div class="row">
+                    {{ $products->links() }}
+                    @foreach ($products as $product)
+                    @include('includes.products')
+
+                    @endforeach
+                    {{ $products->links() }}
+                </div>
+                <!-- /store products -->
+
+
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+
 @endsection

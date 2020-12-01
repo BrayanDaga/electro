@@ -1,4 +1,3 @@
-@foreach ($products as $product)
 <div class="clearfix visible-sm visible-xs"></div>
 
 <!-- product -->
@@ -11,19 +10,26 @@
             <p class="product-category">Category</p>
             <h3 class="product-name"><a href="#">{{ $product->get_excerpt }}...</a></h3>
             <h4 class="product-price">${{ $product->price }} </h4>
-            <div class="product-rating">
-            </div>
-            <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+
+            {{-- <div class="product-btns">
                 <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-            </div>
+            </div> --}}
         </div>
+
+        @if (isset($cart))
+
+        @else
         <div class="add-to-cart">
+
+        <form class="d-inline" method="POST" action="{{ route('products.carts.store' , ['product'=> $product->id]) }}">
+            @csrf
             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+        </form>
         </div>
+
+        @endif
+
     </div>
 </div>
 <!-- /product -->
 
-@endforeach

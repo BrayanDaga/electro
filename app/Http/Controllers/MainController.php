@@ -9,7 +9,7 @@ class MainController extends Controller
 {
     public function __invoke()
     {
-        $products = Product::where('status','available')->paginate();
+        $products = Product::available()->paginate();
         return view('welcome',compact('products'));
 
     }

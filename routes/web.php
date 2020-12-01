@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController')->name('main');
 
+Route::resource('carts', 'CartController')->only(['index']);
+
+Route::resource('products.carts', 'ProductCartController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
