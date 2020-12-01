@@ -7,10 +7,6 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            <!-- ASIDE -->
-
-            <!-- /ASIDE -->
-
             <!-- STORE -->
             <div id="store" class="col-md-12">
 
